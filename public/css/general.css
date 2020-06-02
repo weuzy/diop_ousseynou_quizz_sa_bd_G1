@@ -1,0 +1,218 @@
+@import url('https://fonts.googleapis.com/css2?family=Caesar+Dressing&family=Cinzel+Decorative&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Basic&family=Caesar+Dressing&family=Cinzel+Decorative&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Basic&family=Caesar+Dressing&family=Cairo:wght@300&family=Cinzel+Decorative&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Buda:wght@300&display=swap');    
+/* index.php */
+html,
+body {
+	height: 100%;
+	padding: 0;
+	margin: 0;
+}
+#heading {
+	height: 100%;
+	background-image: url('../images/QUIZ.jpg');
+	background-size: cover;
+	background-position: center;
+	background-repeat: no-repeat;
+}
+header {
+	height: 8em;
+}
+#logo {
+	margin-top: 3px;
+	background-image: url('../images/logo-QuizzSA.png');
+	background-size: 5em 100%;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+.titre {
+	font-family: Cinzel Decorative;
+	font-style: normal;
+	font-weight: bold;
+	font-size: 51px;
+	line-height: 100.19%;
+	/* or 48px */
+	display: flex;
+	align-items: center;
+	text-align: center;
+	height: 95px;
+	width: 45rem;
+	color: cornsilk;
+	background: linear-gradient(180deg, #c4c4c4 0%, rgba(196, 196, 196, 0) 100%);
+	background-blend-mode: darken;
+}
+
+        /* connexion.php */
+.title {
+	margin-top: 8%;
+	text-align: center;
+	font-family: Caesar Dressing;
+	font-style: normal;
+	font-weight: normal;
+	font-size: 45px;
+	line-height: 96.19%;
+	/* or 43px */
+	letter-spacing: 0.04em;
+	text-transform: uppercase;
+	color: #000000;
+	mix-blend-mode: hard-light;
+}
+#login,
+#password {
+	position: relative;
+	padding: 2.5rem;
+	background: #f6dac4;
+	border-radius: 13px;
+	font-family: Basic;
+	font-style: normal;
+	font-weight: normal;
+	font-size: 40px;
+	line-height: 96.19%;
+	/* identical to box height, or 29px */
+	display: flex;
+	align-items: center;
+	text-align: start;
+	letter-spacing: 0.04em;
+	text-transform: uppercase;
+	color: #000000;
+}
+#login {
+	margin-top: 2rem;
+}
+.glyphicon {
+	font-size: 50px;
+}
+.error-form{
+    font-size: 1.5rem;
+}
+.btn-form {
+	width: 205px;
+	height: 53px;
+	font-family: Cairo;
+	font-style: normal;
+	font-weight: bold;
+	font-size: 30px;
+	line-height: 96.19%;
+	/* or 23px */
+	display: flex;
+	align-items: center;
+	text-align: center;
+	letter-spacing: 0.04em;
+	text-transform: uppercase;
+	color: #ffffff;
+	background: rgba(113, 251, 110, 0.63);
+	border: rgba(113, 251, 110, 0.63);
+	border-radius: 18px;
+}
+.link-form {
+	position: absolute;
+	width: 257px;
+	height: 42px;
+	margin-left: 55%;
+	margin-top: 1%;
+	font-family: ABeeZee;
+	font-style: normal;
+	font-weight: normal;
+	font-size: 24px;
+	line-height: 96.19%;
+	/* or 23px */
+	display: flex;
+	align-items: center;
+	text-align: center;
+	letter-spacing: -0.045em;
+	text-decoration-line: underline;
+	text-transform: lowercase;
+	color: #ffcca2;
+}
+
+@media screen and (max-width:768px){
+    .titre{
+        font-size: 7.25vw !important;
+    }
+}
+
+        /* admin.php */
+.line{
+    position: relative;
+    background-color: rgba(113, 251, 110, 0.63);
+    height: 3px;
+    width: 29%;
+    margin-top: 2rem;
+    margin-left: 35%;
+}
+.wrapper-header{
+    width: 680px;
+    margin-top: 2rem;
+    margin-left: 30%;
+    font-family: Cinzel Decorative;
+    color: #FFFFFF;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 24px;
+    line-height: 100.19%;
+    display: flex;
+    align-items: center;
+    text-align: center;
+    text-transform: capitalize;
+}
+.wrapper-body{
+    margin-left: 25%;
+    margin-top: 2rem;
+    padding: 5%;
+    background: linear-gradient(180deg, #F6DAC4 0%, rgba(246, 218, 196, 0) 100%);
+    mix-blend-mode: lighten;
+    border-radius: 30px;
+    width: 50%;
+}
+.menu{
+    width: 147px;
+    height: 36px;
+    margin-left: 38%;
+    margin-top: -2rem;
+    font-family: Cinzel Decorative;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 30px;
+    line-height: 100.19%;
+    /* or 24px */
+    display: flex;
+    align-items: center;
+    text-transform: capitalize;
+    color: #985823;
+}
+.link{
+    width: 333px;
+    height: 50px;
+    margin-left: 22%;
+    margin-top: 1.5rem;
+    background: rgba(113, 251, 110, 0.63);
+    border-radius: 8px;
+    font-family: Buda;
+    font-style: normal;
+    font-weight: 300;
+    font-size: 36px;
+    line-height: 100.19%;
+    /* identical to box height, or 36px */
+    display: flex;
+    align-items: center;
+    text-align: center;
+    color: #FFFFFF;
+}
+.deconnexion{
+    width: 9rem;
+    height: 40px;
+    margin-left: 77%;
+    background: linear-gradient(0deg, #F91421, #F91421);
+    border-radius: 7px;
+    font-family: Buda;
+    font-style: normal;
+    font-weight: 300;
+    font-size: 23px;
+    line-height: 100.19%;
+    /* identical to box height, or 23px */
+    display: flex;
+    align-items: center;
+    text-align: center;
+    color: #FFFFFF;
+}
