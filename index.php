@@ -34,9 +34,9 @@
       </div>
     </div>
    
-    <!-- jQuery first,  JS -->
+    <!-- jQuery first,  bootpag -->
     <script src="public/js/jquery.js"></script>
-    
+    <script src="public/js/bootpag.js"></script>
     <!-- Optional JavaScript -->
     <script src="public/js/load.js"></script>   
   </body>
