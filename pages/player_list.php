@@ -1,94 +1,69 @@
+<?php 
+    include_once("../db/connect_to_BD.php");
+    $stmt = $db->prepare("SELECT COUNT(*) FROM utilisateur");
+    $stmt->execute();
+    $rows = $stmt->fetch();
+
+    // get total no. of pages
+    $total_pages = ceil($rows[0]/$row_limit);
+
+
+?>
+<style>
+    .pagination.bootpag{
+        width: 100%;
+        justify-content: space-between;
+        font-size: 1.25rem;
+    }
+    .pagination.bootpag li:not(.next):not(.prev){
+        display: none;
+    }
+    .pagination.bootpag li a{
+         background-color: #89e8de;
+         color: #ffff;
+         border-radius: 1rem;
+         padding: 7%;
+    }
+</style>
 <div class="wrapper">
 <div class="line col-4 align-items-center"></div>
 <div class="col-2-md wrapper-header" style="margin-left:38%">liste des joueurs par score</div>
 <div class="list-body col-6">
-    <div class="nav-body">
-        <!-- Table -->
-        <table width="100%" class="text-center" id="emp_table" border="0">
-            <tr class="tr_header">
+    <table class="table show table-hover">
+        <thead>
+            <tr>
+                <th>#</th>
                 <th>Prénom</th>
                 <th>Nom</th>
-                <th>Score</th>
+                <th>score</th>
             </tr>
-        </table>
-        <div id="div_pagination">
-            <input type="hidden" id="txt_rowid" value="0">
-            <input type="hidden" id="txt_allcount" value="0">
-            <input type="button" class="button" value="Previous" id="but_prev" />
-
-            <input type="button" class="button" value="Next" id="but_next" />
-        </div>
+        </thead>
+        <tbody id="pg-results">
+            
+        </tbody>
+    </table>
+    <div class="panel-footer text-center">
+        <div class="pagination"></div>
     </div>
+    <a href="#" class="nav-link back_to_menu" id="back_to_menu">retour vers le menu</a>
 </div>
-</div>
-<script>
-    // Total number of rows visible at a time
-    var rowperpage = 2;
-        $(document).ready(function(){
-
-            getData();  // getting data
-
-            $("#but_prev").click(function(){
-                var rowid = Number($("#txt_rowid").val());
-                var allcount = Number($("#txt_allcount").val());
-                rowid -= rowperpage;
-                if(rowid < 0){
-                    rowid = 0;
-                }
-                $("#txt_rowid").val(rowid);
-                getData();
-            });
-
-            $("#but_next").click(function(){
-                var rowid = Number($("#txt_rowid").val());
-                var allcount = Number($("#txt_allcount").val());
-                rowid += rowperpage;
-                if(rowid <= allcount){
-               
-                    $("#txt_rowid").val(rowid);
-                    getData();
-                    alert();
-                }
-
-            });
+<script type="text/javascript">
+    $(document).ready(function() {
+        $("#pg-results").load("data/showPlayer_list.php");
+        $(".pagination").bootpag({
+            total: <?php echo $total_pages; ?>,
+            page: 1,
+            maxVisible: 5,
+            next: 'suivant',
+            prev: 'précédent'
+        }).on("page", function(e, page_num){
+            e.preventDefault();
+            /*$("#results").prepend('<div class="loading-indication"><img src="ajax-loader.gif" /> Loading...</div>');*/
+            $("#pg-results").load("data/showPlayer_list.php", {"page": page_num});
         });
-          /* requesting data */
-          function getData(){
-            var rowid = $("#txt_rowid").val();
-            var allcount = $("#txt_allcount").val();
-
-            $.ajax({
-                url:'data/showPlayer_list.php',
-                type:'post',
-                data:{rowid:rowid,rowperpage:rowperpage},
-                //  dataType:'JSON',
-                success:function(response){
-                    createTablerow(response);
-                }
-            });
-
-        }
-         /* Create Table */
-         function createTablerow(data){
-
-            var dataLen = data.length;
-
-            $("#emp_table tr:not(:first)").remove();
-
-            for(var i=0; i<dataLen; i++){
-                if(i == 0){
-                    var allcount = data[i]['allcount'];
-                    $("#txt_allcount").val(allcount);
-                }else{
-                    var prenom = data[i]['prenom'];
-                    var nom = data[i]['nom'];
-                    var score = data[i]['score'];
-
-                    $("#emp_table").append("<tr id='tr_"+i+"'></tr>");
-                    $("#tr_"+i).append("<td align='center'>"+prenom+"</td>");
-                    $("#tr_"+i).append("<td align='left'>"+nom+"</td>");
-                    $("#tr_"+i).append("<td align='center'>"+score+"</td>");
-                }
-            }
-            }
-</script>
+        $("#back_to_menu").click(function(){
+            $("#content").load("pages/admin.php");
+        })
+       
+    });
+</script> 
