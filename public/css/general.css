@@ -323,49 +323,40 @@ input[type="file"] {
 .list-body{
     margin-left: 25%;
     margin-top: 0rem;
-    padding: 15%;
-    background: linear-gradient(180deg, rgba(246, 218, 196, 0) 0%, #F6DAC4 100%);
-    mix-blend-mode: lighten;
+    padding: 1%;
+    background: linear-gradient(180deg, #F6DAC4 0%, rgba(246, 218, 196, 0) 100%);
+    /* mix-blend-mode: lighten; */
     border-radius: 30px;
     width: 50%;
 }
-.nav-body{
-    position: absolute;
-    margin-left: -29%;
-    margin-top: -14rem;
-    width: 98%;
-    height: 98%;
-    border-radius: 15px;
+.show{
+
+    position: relative;
+    width: 45rem;
+    margin-left: 2%;
+    height: 29rem;
+    color: #212529;
+    background: linear-gradient(180deg, rgba(113, 251, 110, 0.63) 51.56%, #FFFFFF 100%);
+    font-family: buda;
+    font-size: 35px;
+    margin-top: 0rem;
+    border-radius: 22px;
 }
-.tr_header th{
+.back_to_menu{
+    position: fixed;
+    width: 203px;
+    height: 40px;
+    margin-left: -23%;
+    top: 474px;
+    background: linear-gradient(180deg, rgba(243, 141, 147, 0.2961) 0%, rgba(220, 81, 89, 0.63) 0%);
+    border-radius: 7px;
     font-family: Buda;
-    font-weight: bold;
+    font-style: normal;
+    font-weight: 300;
     font-size: 23px;
-    color: white;
-    padding:10px 0px;
-    letter-spacing: 1px;
-}
-/* Table rows and columns */
-#emp_table td{
-    padding:10px;
-}
-#emp_table tr:nth-child(even){
-    background-color:lavender;
-    color:black;
-}
-
-/* */
-#div_pagination{
-    width:100%;
-    margin-top:5px;
-    text-align:center;
-}
-
-.button{
-    border-radius:3px;
-    border:0px;
-    background-color:mediumpurple;
-    color:white;
-    padding:10px 20px;
-    letter-spacing: 1px;
+    line-height: 100.19%;
+    display: flex;
+    align-items: center;
+    text-align: center;
+    color: #FFFFFF;
 }
