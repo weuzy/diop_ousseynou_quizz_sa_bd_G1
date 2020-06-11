@@ -4,6 +4,7 @@
     $dbName = 'mini_projet_quizz_sa';
     $dbUser = 'root';
     $dbUserPassword = '';
+    $row_limit = 5;
 
     try{
         $db = new PDO('mysql:host='.$dbHost.';dbname='.$dbName,$dbUser,$dbUserPassword,
