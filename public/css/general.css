@@ -360,3 +360,21 @@ input[type="file"] {
     text-align: center;
     color: #FFFFFF;
 }
+.head-in{
+    position: absolute;
+    width: 329px;
+    height: 94px;
+    left: 298px;
+    top: -2.5rem;
+    font-family: Buda;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 36px;
+    line-height: 100.19%;
+    display: flex;
+    align-items: flex-end;
+    text-align: center;
+    text-decoration-line: underline;
+    color: #000000;
+    text-transform: uppercase;
+}
