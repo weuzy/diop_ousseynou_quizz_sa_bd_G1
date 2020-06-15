@@ -1,4 +1,33 @@
-<div class="wrapper">
+<?php 
+             session_start();
+            //  require_once('traitement/fonction.php');
+?>
+<!doctype html>
+<html lang="en">
+  <head>
+    <title>weuzy_QUIZZ_SA</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <!-- CSS DU PROJET -->
+    <link rel="stylesheet" href="../public/css/general.css">
+  </head>
+
+  <body>
+    <div class="container-fluid" id="heading" >
+      <header class="row p-0 ">
+            <div class="col-2 " id="logo">
+            </div>
+            <div class="col-8  text-center d-flex justify-content-center align-items-center">
+            <p class="titre">bienvenu au jeu de quizz</p>
+            </div>
+            <div class="col-2 ">
+            </div>
+      </header>
+      <div id="content-admin" class="content">
+      <div class="wrapper">
     <div class="line align-items-center"></div>
     <div class="col-8 wrapper-header">bienvenue dans la page d'accueil de l'admin</div>
     <div class="wrapper-body">
@@ -20,18 +49,44 @@
     </div>
     <a href="#" class="nav-link deconnexion" id="deconnexion">Déconnexion</a>
 </div>
-<script>
-    $(".nav-link").click(function(e){
+      </div>
+    </div>
+     <!-- jQuery first,  bootpag -->
+     <script src="../public/js/jquery.js"></script>
+    <!-- Optional JavaScript -->
+    <script>
+        $(function(){ 
+            var page_encours
+            if (page_encours != undefined) {
+                alert(page_encours)
+            }else{
+                page_encours = 'admin.php';
+            }
+            $(".nav-link").click(function(e){
+
         if (e.target.id == 'Lq') {
-            $("#content").load("pages/question_list.php");
+            $("#content-admin").load("question_list.php");
+            // window.location.replace('question_list.php');
         }else if (e.target.id == 'CreA'){
-            $("#content").load("pages/sign_admin.php");
+            $("#content-admin").load("sign_admin.php");
+            // window.location.replace('sign_admin.php');
         }else if (e.target.id == 'Lj') {
-            $("#content").load("pages/player_list.php");
+            page_encours = "player_lis.php"
+            alert(page_encours);
+            $("#content-admin").load("player_list.php");
+            // window.location.replace('player_list.php');
         }else if (e.target.id == 'CreQ'){
-            $("#content").load("pages/ask_question.php");
+            $("#content-admin").load("ask_question.php");
+            // window.location.replace('ask_question.php');
         }else if (e.target.id == 'deconnexion') {
-            $("#content").load("pages/connexion.php")
+            $("#content-admin").load("connexion.php")
         }
     })
+        })
+   
 </script>
+  
+  </body>
+  
+</html>
+
