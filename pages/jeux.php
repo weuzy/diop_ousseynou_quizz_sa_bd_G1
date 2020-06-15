@@ -1,4 +1,21 @@
-<style>
+<?php 
+             session_start();
+            //  require_once('traitement/fonction.php');
+
+?>
+<!doctype html>
+<html lang="en">
+  <head>
+    <title>weuzy_QUIZZ_SA</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <!-- CSS DU PROJET -->
+    <link rel="stylesheet" href="../public/css/general.css">
+  </head>
+  <style>
 .score-body{
     margin-left: 25%;
     margin-top: 0rem;
@@ -35,10 +52,23 @@
 
 </style>
 
+  <body>
+    <div class="container-fluid" id="heading" >
+      <header class="row p-0 ">
+            <div class="col-2 " id="logo">
+            </div>
+            <div class="col-8  text-center d-flex justify-content-center align-items-center">
+            <p class="titre">bienvenu au jeu de quizz</p>
+            </div>
+            <div class="col-2 ">
+            </div>
+      </header>
+      <div id="content" class="content">
+       
 <div class="wrapper">
     <div class="line col-4 align-items-center"></div>
     <div class="col-2-md wrapper-header" style="margin-left:28%;">relevez le challenge et testez vos connaissances</div>
-    <img src="public/images/QUIZ.jpg" class="picture-form">
+    <img src="" class="picture-form">
     <div class="score-body col-6">
         <div class="ask">
             <div class="head-in">question</div>
@@ -47,7 +77,7 @@
     <div class="score">
         <ul class="nav nav-tabs">
             <li class="nav-item">
-                <a href="#" id="top" class="nav-link active">
+                <a href="#" id="top" class="nav-link">
                     <h5>Top Score</h5>
                 </a>
             </li>
@@ -61,16 +91,56 @@
     </div>
     <a href="#" class="nav-link deconnexion" id="deconnexion">Déconnexion</a>
 </div>
-<script>
-    $("#top").click(function(){
+      </div>
+    </div>
+    <!-- jQuery first,   -->
+    <script src="../public/js/jquery.js"></script>
+    <!-- Optional JavaScript -->
+    <script>
+    $(function(){
+        const display = $(".affichage");
+                // affichage top 5 meilleurs scores
+       $("#top").on('click', function(){
         $.ajax({
             type: "POST",
-            url: "data/getTopscore.php",
-            data: {prenom:prenom,nom:nom,score:score},
+            url: "http://localhost/Diop_Ousseynou_Quizz_BD/data/getTopScore.php",
+            data: {limit:5,type:'ajax'},
             dataType: "JSON",
-            success: function(show_data){
-                $(".affichage").prepend(".affichage")
+            success: function(data){
+                display.html("");
+                printData(data,display);
             }
         })
+            // $("#top").off('click');
+       });
+
+                // affichage mon meilleur score
+        $("#best").on('click', function(){
+            $.ajax({
+                type: "GET",
+                url: "http://localhost/Diop_Ousseynou_Quizz_BD/data/getBestScore.php",
+                dataType: "JSON",
+                success: function(data){
+                   display.html(`<h5 class="mt-10" style="text-align:center;font-family:Buda;margin-top:3rem">${data.id}&nbsp;&nbsp;${data.prenom}&nbsp;&nbsp;${data.nom}&nbsp;&nbsp;${data.score}&nbsp;&nbsp;pts</h5>`) 
+
+                }
+            })
+
+
+        });
+
+       function printData(data,display){
+           $.each(data,function(indice,user){
+              display.append(`
+              <h5 style="text-align:center;font-family:Buda;">${user.id}&nbsp;&nbsp;${user.prenom}&nbsp;&nbsp;${user.nom}&nbsp;&nbsp;${user.score}&nbsp;&nbsp;pts</h5>
+              `) 
+           });
+       }
+       $("#deconnexion").on('click', function(){
+           $("#content").load('pages/connexion.php');
+       })
     })
 </script>
+  </body>
+  
+</html>
