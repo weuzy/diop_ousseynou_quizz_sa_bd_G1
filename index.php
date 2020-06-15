@@ -1,7 +1,4 @@
-<?php 
-             session_start();
-            //  require_once('traitement/fonction.php');
-?>
+
 <!doctype html>
 <html lang="en">
   <head>
@@ -38,7 +35,8 @@
     <script src="public/js/jquery.js"></script>
     <script src="public/js/bootpag.js"></script>
     <!-- Optional JavaScript -->
-    <script src="public/js/load.js"></script>   
+    <script src="public/js/load.js"></script> 
+  
   </body>
   
 </html>
