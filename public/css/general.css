@@ -338,15 +338,14 @@ input[type="file"] {
     color: #212529;
     background: linear-gradient(180deg, rgba(113, 251, 110, 0.63) 51.56%, #FFFFFF 100%);
     font-family: buda;
-    font-size: 35px;
+    font-size: 20px;
     margin-top: 0rem;
     border-radius: 22px;
 }
 .back_to_menu{
     position: fixed;
     width: 203px;
-    height: 40px;
-    margin-left: -23%;
+    padding: 7px;
     top: 474px;
     background: linear-gradient(180deg, rgba(243, 141, 147, 0.2961) 0%, rgba(220, 81, 89, 0.63) 0%);
     border-radius: 7px;
